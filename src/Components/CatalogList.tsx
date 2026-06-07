@@ -1,14 +1,14 @@
 import CatalogItem from "./CatalogItem";
 
 type CatalogListProps = {
-    objects: {
-        id: number;
-        name: string;
-        image: string;
-    }[];
+    objects: any[];
+    onSelect: (object: any) => void;
 };
 
-function CatalogList({ objects }: CatalogListProps) {
+function CatalogList({
+                         objects,
+                         onSelect,
+                     }: CatalogListProps) {
     return (
         <aside>
             <h2>Katalog</h2>
@@ -17,6 +17,7 @@ function CatalogList({ objects }: CatalogListProps) {
                 <CatalogItem
                     key={object.id}
                     object={object}
+                    onSelect={onSelect}
                 />
             ))}
         </aside>

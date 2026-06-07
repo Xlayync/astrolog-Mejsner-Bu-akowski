@@ -4,17 +4,20 @@ type CatalogItemProps = {
         name: string;
         image: string;
     };
+    onSelect: (object: any) => void;
 };
 
-function CatalogItem({ object }: CatalogItemProps) {
+function CatalogItem({
+                         object,
+                         onSelect,
+                     }: CatalogItemProps) {
     return (
-        <div className="catalog-item">
+        <div onClick={() => onSelect(object)}>
             <img
                 src={object.image}
                 alt={object.name}
                 width={60}
             />
-
             <span>{object.name}</span>
         </div>
     );
