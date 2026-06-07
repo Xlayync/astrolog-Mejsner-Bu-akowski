@@ -60,3 +60,12 @@ body {
   width: 100%;
   padding: 12px;
 }
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .catalog {
+    width: 100%;
+  }
+}
