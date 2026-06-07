@@ -1,19 +1,18 @@
 import CatalogItem from "./CatalogItem";
 
-type CatalogListProps = {
-    objects: any[];
-    onSelect: (object: any) => void;
-};
-
-function CatalogList({
-                         objects,
-                         onSelect,
-                     }: CatalogListProps) {
+function CatalogList({ objects, onSelect }: any) {
     return (
-        <aside>
+        <aside
+            style={{
+                width: "250px",
+                background: "#111",
+                color: "white",
+                padding: "10px",
+            }}
+        >
             <h2>Katalog</h2>
 
-            {objects.map((object) => (
+            {objects.map((object: any) => (
                 <CatalogItem
                     key={object.id}
                     object={object}

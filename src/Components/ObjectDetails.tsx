@@ -1,12 +1,6 @@
-type ObjectDetailsProps = {
-    selectedObject: any;
-};
-
-function ObjectDetails({
-                           selectedObject,
-                       }: ObjectDetailsProps) {
+function ObjectDetails({ selectedObject }: any) {
     return (
-        <section>
+        <section style={{ flex: 1, padding: "20px" }}>
             {selectedObject ? (
                 <>
                     <h2>{selectedObject.name}</h2>
@@ -17,18 +11,11 @@ function ObjectDetails({
                         width={300}
                     />
 
-                    <p>
-                        <strong>Typ:</strong>{" "}
-                        {selectedObject.type}
-                    </p>
-
-                    <p>
-                        <strong>Odległość:</strong>{" "}
-                        {selectedObject.distance}
-                    </p>
+                    <p>Typ: {selectedObject.type}</p>
+                    <p>Odległość: {selectedObject.distance}</p>
                 </>
             ) : (
-                <h2>🛰️ Wybierz obiekt z katalogu</h2>
+                <h2>🛰️ Wybierz obiekt</h2>
             )}
         </section>
     );

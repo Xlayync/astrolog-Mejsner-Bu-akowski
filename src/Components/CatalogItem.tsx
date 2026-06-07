@@ -7,17 +7,28 @@ type CatalogItemProps = {
     onSelect: (object: any) => void;
 };
 
-function CatalogItem({
-                         object,
-                         onSelect,
-                     }: CatalogItemProps) {
+function CatalogItem({ object, onSelect }: CatalogItemProps) {
     return (
-        <div onClick={() => onSelect(object)}>
+        <div
+            className="catalog-item"
+            onClick={() => onSelect(object)}
+            style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "10px",
+                cursor: "pointer",
+                borderBottom: "1px solid #333",
+            }}
+        >
             <img
                 src={object.image}
                 alt={object.name}
-                width={60}
+                width={50}
+                height={50}
+                style={{ borderRadius: "50%" }}
             />
+
             <span>{object.name}</span>
         </div>
     );
