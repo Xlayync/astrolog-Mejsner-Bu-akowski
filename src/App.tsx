@@ -4,8 +4,7 @@ import CatalogList from "./Components/CatalogList";
 import ObjectDetails from "./Components/ObjectDetails";
 import DiscoveryForm from "./Components/DiscoveryForm";
 
-
-const sampleObjects = [
+const initialObjects = [
     {
         id: 1,
         name: "Mars",
@@ -44,22 +43,35 @@ const sampleObjects = [
 ];
 
 function App() {
-    const [selectedObject, setSelectedObject] = useState(null);
+    const [objects, setObjects] = useState(initialObjects);
+    const [selectedObject, setSelectedObject] = useState<any>(null);
+
+    const addObject = (newObject: any) => {
+        setObjects((prev) => [
+            ...prev,
+            {
+                ...newObject,
+                id: Date.now(),
+            },
+        ]);
+    };
 
     return (
         <>
             <Header />
 
-            <CatalogList
-                objects={sampleObjects}
-                onSelect={setSelectedObject}
-            />
+            <div style={{ display: "flex" }}>
+                <CatalogList
+                    objects={objects}
+                    onSelect={setSelectedObject}
+                />
 
-            <ObjectDetails
-                selectedObject={selectedObject}
-            />
+                <ObjectDetails
+                    selectedObject={selectedObject}
+                />
+            </div>
 
-            <DiscoveryForm />
+            <DiscoveryForm onAddObject={addObject} />
         </>
     );
 }
