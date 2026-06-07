@@ -57,10 +57,23 @@ function App() {
     };
 
     return (
-        <>
+        <div
+            style={{
+                fontFamily: "Arial",
+                background: "#0d1117",
+                color: "white",
+                minHeight: "100vh",
+            }}
+        >
             <Header />
 
-            <div style={{ display: "flex" }}>
+            <div
+                style={{
+                    display: "flex",
+                    gap: "20px",
+                    padding: "20px",
+                }}
+            >
                 <CatalogList
                     objects={objects}
                     onSelect={setSelectedObject}
@@ -71,8 +84,10 @@ function App() {
                 />
             </div>
 
-            <DiscoveryForm onAddObject={addObject} />
-        </>
+            <div style={{ padding: "20px" }}>
+                <DiscoveryForm onAddObject={addObject} />
+            </div>
+        </div>
     );
 }
 
