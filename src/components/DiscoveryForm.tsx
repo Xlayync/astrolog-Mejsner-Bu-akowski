@@ -11,7 +11,20 @@ function DiscoveryForm({ onAddObject }: DiscoveryFormProps) {
     const [distance, setDistance] = useState("");
     const [image, setImage] = useState("");
 
+    const handleSubmit = (
+        e: FormEvent<HTMLFormElement>
+    ) => {
+        e.preventDefault();
 
+        if (
+            !name.trim() ||
+            !type.trim() ||
+            !distance.trim() ||
+            !image.trim()
+        ) {
+            alert("Wypełnij wszystkie pola!");
+            return;
+        }
 
         const newObject: CelestialObject = {
             id: Date.now(),
