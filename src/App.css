@@ -31,3 +31,15 @@ body {
 .catalog-item:hover {
   background: #30363d;
 }
+.details {
+  flex: 1;
+  background: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.details img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
