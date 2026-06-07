@@ -1,4 +1,9 @@
-﻿export interface CelestialObject {
+﻿import mars from "./assets/mars.jpg";
+import andromeda from "./assets/andromeda.jpg";
+import betelgeza from "./assets/betelgeza.jpg";
+import europa from "./assets/europa.jpg";
+import messier87 from "./assets/messier87.jpg";
+export interface CelestialObject {
     id: number;
     name: string;
     type: string;
@@ -13,7 +18,7 @@ const celestialObjects: CelestialObject[] = [
         type: "Planeta",
         distance: "225 mln km",
         image:
-            "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9",
+            mars,
     },
     {
         id: 2,
@@ -21,7 +26,7 @@ const celestialObjects: CelestialObject[] = [
         type: "Galaktyka",
         distance: "2.5 mln lat świetlnych",
         image:
-            "https://images.unsplash.com/photo-1462331940025-496dfbfc7564",
+            andromeda,
     },
     {
         id: 3,
@@ -29,7 +34,7 @@ const celestialObjects: CelestialObject[] = [
         type: "Gwiazda",
         distance: "642 lata świetlne",
         image:
-            "https://images.unsplash.com/photo-1502134249126-9f3755a50d78",
+            betelgeza,
     },
     {
         id: 4,
@@ -37,7 +42,7 @@ const celestialObjects: CelestialObject[] = [
         type: "Księżyc",
         distance: "628 mln km",
         image:
-            "https://images.unsplash.com/photo-1446776877081-d282a0f896e2",
+            europa,
     },
     {
         id: 5,
@@ -45,7 +50,7 @@ const celestialObjects: CelestialObject[] = [
         type: "Galaktyka",
         distance: "53 mln lat świetlnych",
         image:
-            "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+            messier87,
     },
 ];
 

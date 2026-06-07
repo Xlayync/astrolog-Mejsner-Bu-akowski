@@ -1,6 +1,6 @@
 function ObjectDetails({ selectedObject }: any) {
     return (
-        <section style={{ flex: 1, padding: "20px" }}>
+        <section className="details">
             {selectedObject ? (
                 <>
                     <h2>{selectedObject.name}</h2>
@@ -9,6 +9,7 @@ function ObjectDetails({ selectedObject }: any) {
                         src={selectedObject.image}
                         alt={selectedObject.name}
                         width={300}
+                        height={300}
                     />
 
                     <p>Typ: {selectedObject.type}</p>

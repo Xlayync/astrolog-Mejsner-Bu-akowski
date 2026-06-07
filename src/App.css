@@ -1,71 +1,245 @@
-body {
-  background: #0d1117;
-  color: white;
-  font-family: Arial, sans-serif;
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.app {
-  padding: 20px;
+body {
+  background: #0d1117;
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+#root {
   min-height: 100vh;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .header {
   text-align: center;
+  padding: 30px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.catalog {
-  width: 300px;
-  background: #161b22;
+
+.header h1 {
+  color: #58a6ff;
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #8b949e;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.main-content {
+  display: grid;
+  grid-template-columns: 280px 1fr 340px;
+  gap: 24px;
+
+  max-width: 1600px;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
+}
+
+/* =========================
+   SHARED CARDS
+========================= */
+
+.catalog,
+.details,
+.form {
+  background: #161b22;
+  border-radius: 18px;
+  padding: 20px;
+
+  box-shadow:
+          0 10px 25px rgba(0, 0, 0, 0.25),
+          0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* =========================
+   CATALOG
+========================= */
+
+.catalog h2 {
+  color: #58a6ff;
+  margin-bottom: 20px;
 }
 
 .catalog-item {
   display: flex;
-  gap: 10px;
-  padding: 10px;
-  cursor: pointer;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  margin-bottom: 12px;
+
   background: #21262d;
-  border-radius: 8px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
 }
 
 .catalog-item:hover {
   background: #30363d;
+  transform: translateY(-2px);
 }
+
+.catalog-item img {
+  width: 60px;
+  height: 60px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+  border: 2px solid #58a6ff;
+}
+
+.catalog-item span {
+  font-weight: 600;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
 .details {
-  flex: 1;
-  background: #161b22;
-  padding: 20px;
-  border-radius: 10px;
+  min-height: 650px;
+}
+
+.details h2 {
+  color: #58a6ff;
+  margin-bottom: 15px;
 }
 
 .details img {
   width: 100%;
-  max-width: 500px;
-  border-radius: 10px;
+  height: 420px;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+
+  margin-bottom: 20px;
 }
+
+.details p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.empty-state {
+  height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #8b949e;
+  text-align: center;
+}
+
+/* =========================
+   FORM
+========================= */
+
 .form {
-  margin-top: 20px;
-  background: #161b22;
-  padding: 20px;
-  border-radius: 10px;
+  position: sticky;
+  top: 20px;
+}
+
+.form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #58a6ff;
 }
 
 .form input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+
+  padding: 13px 15px;
+  margin-bottom: 12px;
+
+  background: #0d1117;
+
+  border: 1px solid #30363d;
+  border-radius: 10px;
+
+  color: white;
+  font-size: 15px;
+
+  transition: 0.2s;
+}
+
+.form input::placeholder {
+  color: #8b949e;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #58a6ff;
 }
 
 .form button {
   width: 100%;
-  padding: 12px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #238636;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
 }
-@media (max-width: 768px) {
+
+.form button:hover {
+  background: #2ea043;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1200px) {
   .main-content {
-    flex-direction: column;
+    grid-template-columns: 260px 1fr;
   }
 
-  .catalog {
-    width: 100%;
+  .form {
+    grid-column: 1 / -1;
+    position: static;
+  }
+}
+
+@media (max-width: 850px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .details img {
+    height: 280px;
   }
 }
